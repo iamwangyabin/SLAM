@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/wang/Desktop/slambook/ch3/useGeometry/useGeometry.cpp
+iostream
+-
+cmath
+-
+eigen3/Eigen/Core
+-
+eigen3/Eigen/Geometry
+-
+
