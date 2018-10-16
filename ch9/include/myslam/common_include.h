@@ -9,7 +9,7 @@ using Eigen::Vector2d;
 using Eigen::Vector3d;
 
 // for Sophus
-#include <sophus/se3.h>
+#include "/usr/local/include/sophus/se3.hpp"
 using Sophus::SE3;
 
 // for cv
