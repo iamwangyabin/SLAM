@@ -9,9 +9,9 @@ class Config{
         static std::shared_ptr<Config> config_;
         cv::FileStorage file_;
 
-        Config(){};
+        Config(){}
     public:
-        ~Config():
+        ~Config();
 
         static void setParameterFile(const std::string& filename );
         template <typename T>
