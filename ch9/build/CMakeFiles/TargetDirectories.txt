@@ -1,2 +1,8 @@
 /home/wang/Desktop/slambook/ch9/build/CMakeFiles/rebuild_cache.dir
 /home/wang/Desktop/slambook/ch9/build/CMakeFiles/edit_cache.dir
+/home/wang/Desktop/slambook/ch9/build/src/CMakeFiles/rebuild_cache.dir
+/home/wang/Desktop/slambook/ch9/build/src/CMakeFiles/myslam.dir
+/home/wang/Desktop/slambook/ch9/build/src/CMakeFiles/edit_cache.dir
+/home/wang/Desktop/slambook/ch9/build/test/CMakeFiles/rebuild_cache.dir
+/home/wang/Desktop/slambook/ch9/build/test/CMakeFiles/run_vo.dir
+/home/wang/Desktop/slambook/ch9/build/test/CMakeFiles/edit_cache.dir

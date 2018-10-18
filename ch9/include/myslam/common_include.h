@@ -9,8 +9,10 @@ using Eigen::Vector2d;
 using Eigen::Vector3d;
 
 // for Sophus
-#include "/usr/local/include/sophus/se3.hpp"
+#include <sophus/se3.h>
+#include <sophus/so3.h>
 using Sophus::SE3;
+using Sophus::SO3;
 
 // for cv
 #include <opencv2/core/core.hpp>

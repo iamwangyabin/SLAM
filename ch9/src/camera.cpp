@@ -22,7 +22,7 @@ namespace myslam{
             (p_p (1,0)-cy_)*depth/fy_,
             depth);
     }
-    Vector2d Camera::world2pixel(const Vector3d& p_w, const SE3& T_c_w){
+    Vector3d Camera::world2pixel(const Vector3d& p_w, const SE3& T_c_w){
         return camera2pixel(world2camera(p_w, T_c_w));
     }
     Vector3d Camera::pixel2world(const Vector2d& p_p, const SE3& T_c_w, double depth){

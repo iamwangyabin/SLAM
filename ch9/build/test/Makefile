@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wang/Desktop/slambook/ch9/build/CMakeFiles /home/wang/Desktop/slambook/ch9/build/CMakeFiles/progress.marks
-	$(MAKE) -f CMakeFiles/Makefile2 all
+	cd /home/wang/Desktop/slambook/ch9/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/wang/Desktop/slambook/ch9/build/CMakeFiles /home/wang/Desktop/slambook/ch9/build/test/CMakeFiles/progress.marks
+	cd /home/wang/Desktop/slambook/ch9/build && $(MAKE) -f CMakeFiles/Makefile2 test/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wang/Desktop/slambook/ch9/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) -f CMakeFiles/Makefile2 clean
+	cd /home/wang/Desktop/slambook/ch9/build && $(MAKE) -f CMakeFiles/Makefile2 test/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,44 +97,60 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/wang/Desktop/slambook/ch9/build && $(MAKE) -f CMakeFiles/Makefile2 test/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/wang/Desktop/slambook/ch9/build && $(MAKE) -f CMakeFiles/Makefile2 test/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/wang/Desktop/slambook/ch9/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named myslam
+# Convenience name for target.
+test/CMakeFiles/run_vo.dir/rule:
+	cd /home/wang/Desktop/slambook/ch9/build && $(MAKE) -f CMakeFiles/Makefile2 test/CMakeFiles/run_vo.dir/rule
+.PHONY : test/CMakeFiles/run_vo.dir/rule
 
-# Build rule for target.
-myslam: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 myslam
-.PHONY : myslam
+# Convenience name for target.
+run_vo: test/CMakeFiles/run_vo.dir/rule
 
-# fast build rule for target.
-myslam/fast:
-	$(MAKE) -f src/CMakeFiles/myslam.dir/build.make src/CMakeFiles/myslam.dir/build
-.PHONY : myslam/fast
-
-#=============================================================================
-# Target rules for targets named run_vo
-
-# Build rule for target.
-run_vo: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 run_vo
 .PHONY : run_vo
 
 # fast build rule for target.
 run_vo/fast:
-	$(MAKE) -f test/CMakeFiles/run_vo.dir/build.make test/CMakeFiles/run_vo.dir/build
+	cd /home/wang/Desktop/slambook/ch9/build && $(MAKE) -f test/CMakeFiles/run_vo.dir/build.make test/CMakeFiles/run_vo.dir/build
 .PHONY : run_vo/fast
+
+run_vo.o: run_vo.cpp.o
+
+.PHONY : run_vo.o
+
+# target to build an object file
+run_vo.cpp.o:
+	cd /home/wang/Desktop/slambook/ch9/build && $(MAKE) -f test/CMakeFiles/run_vo.dir/build.make test/CMakeFiles/run_vo.dir/run_vo.cpp.o
+.PHONY : run_vo.cpp.o
+
+run_vo.i: run_vo.cpp.i
+
+.PHONY : run_vo.i
+
+# target to preprocess a source file
+run_vo.cpp.i:
+	cd /home/wang/Desktop/slambook/ch9/build && $(MAKE) -f test/CMakeFiles/run_vo.dir/build.make test/CMakeFiles/run_vo.dir/run_vo.cpp.i
+.PHONY : run_vo.cpp.i
+
+run_vo.s: run_vo.cpp.s
+
+.PHONY : run_vo.s
+
+# target to generate assembly for a file
+run_vo.cpp.s:
+	cd /home/wang/Desktop/slambook/ch9/build && $(MAKE) -f test/CMakeFiles/run_vo.dir/build.make test/CMakeFiles/run_vo.dir/run_vo.cpp.s
+.PHONY : run_vo.cpp.s
 
 # Help Target
 help:
@@ -143,9 +159,11 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... edit_cache"
-	@echo "... myslam"
 	@echo "... run_vo"
+	@echo "... edit_cache"
+	@echo "... run_vo.o"
+	@echo "... run_vo.i"
+	@echo "... run_vo.s"
 .PHONY : help
 
 
@@ -157,6 +175,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/wang/Desktop/slambook/ch9/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
