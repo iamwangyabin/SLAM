@@ -3,6 +3,7 @@
 
 src/CMakeFiles/myslam.dir/camera.cpp.o: ../include/myslam/camera.h
 src/CMakeFiles/myslam.dir/camera.cpp.o: ../include/myslam/common_include.h
+src/CMakeFiles/myslam.dir/camera.cpp.o: ../include/myslam/config.h
 src/CMakeFiles/myslam.dir/camera.cpp.o: ../src/camera.cpp
 src/CMakeFiles/myslam.dir/camera.cpp.o: /usr/include/eigen3/Eigen/Cholesky
 src/CMakeFiles/myslam.dir/camera.cpp.o: /usr/include/eigen3/Eigen/Core
@@ -328,6 +329,11 @@ src/CMakeFiles/myslam.dir/camera.cpp.o: /usr/local/include/opencv2/videostab/out
 src/CMakeFiles/myslam.dir/camera.cpp.o: /usr/local/include/opencv2/videostab/ring_buffer.hpp
 src/CMakeFiles/myslam.dir/camera.cpp.o: /usr/local/include/opencv2/videostab/stabilizer.hpp
 src/CMakeFiles/myslam.dir/camera.cpp.o: /usr/local/include/opencv2/videostab/wobble_suppression.hpp
+src/CMakeFiles/myslam.dir/camera.cpp.o: /usr/local/include/opencv2/viz.hpp
+src/CMakeFiles/myslam.dir/camera.cpp.o: /usr/local/include/opencv2/viz/types.hpp
+src/CMakeFiles/myslam.dir/camera.cpp.o: /usr/local/include/opencv2/viz/viz3d.hpp
+src/CMakeFiles/myslam.dir/camera.cpp.o: /usr/local/include/opencv2/viz/vizcore.hpp
+src/CMakeFiles/myslam.dir/camera.cpp.o: /usr/local/include/opencv2/viz/widgets.hpp
 src/CMakeFiles/myslam.dir/camera.cpp.o: /usr/local/include/sophus/se3.h
 src/CMakeFiles/myslam.dir/camera.cpp.o: /usr/local/include/sophus/so3.h
 
@@ -658,6 +664,11 @@ src/CMakeFiles/myslam.dir/config.cpp.o: /usr/local/include/opencv2/videostab/out
 src/CMakeFiles/myslam.dir/config.cpp.o: /usr/local/include/opencv2/videostab/ring_buffer.hpp
 src/CMakeFiles/myslam.dir/config.cpp.o: /usr/local/include/opencv2/videostab/stabilizer.hpp
 src/CMakeFiles/myslam.dir/config.cpp.o: /usr/local/include/opencv2/videostab/wobble_suppression.hpp
+src/CMakeFiles/myslam.dir/config.cpp.o: /usr/local/include/opencv2/viz.hpp
+src/CMakeFiles/myslam.dir/config.cpp.o: /usr/local/include/opencv2/viz/types.hpp
+src/CMakeFiles/myslam.dir/config.cpp.o: /usr/local/include/opencv2/viz/viz3d.hpp
+src/CMakeFiles/myslam.dir/config.cpp.o: /usr/local/include/opencv2/viz/vizcore.hpp
+src/CMakeFiles/myslam.dir/config.cpp.o: /usr/local/include/opencv2/viz/widgets.hpp
 src/CMakeFiles/myslam.dir/config.cpp.o: /usr/local/include/sophus/se3.h
 src/CMakeFiles/myslam.dir/config.cpp.o: /usr/local/include/sophus/so3.h
 
@@ -989,6 +1000,11 @@ src/CMakeFiles/myslam.dir/frame.cpp.o: /usr/local/include/opencv2/videostab/outl
 src/CMakeFiles/myslam.dir/frame.cpp.o: /usr/local/include/opencv2/videostab/ring_buffer.hpp
 src/CMakeFiles/myslam.dir/frame.cpp.o: /usr/local/include/opencv2/videostab/stabilizer.hpp
 src/CMakeFiles/myslam.dir/frame.cpp.o: /usr/local/include/opencv2/videostab/wobble_suppression.hpp
+src/CMakeFiles/myslam.dir/frame.cpp.o: /usr/local/include/opencv2/viz.hpp
+src/CMakeFiles/myslam.dir/frame.cpp.o: /usr/local/include/opencv2/viz/types.hpp
+src/CMakeFiles/myslam.dir/frame.cpp.o: /usr/local/include/opencv2/viz/viz3d.hpp
+src/CMakeFiles/myslam.dir/frame.cpp.o: /usr/local/include/opencv2/viz/vizcore.hpp
+src/CMakeFiles/myslam.dir/frame.cpp.o: /usr/local/include/opencv2/viz/widgets.hpp
 src/CMakeFiles/myslam.dir/frame.cpp.o: /usr/local/include/sophus/se3.h
 src/CMakeFiles/myslam.dir/frame.cpp.o: /usr/local/include/sophus/so3.h
 
@@ -1322,6 +1338,11 @@ src/CMakeFiles/myslam.dir/map.cpp.o: /usr/local/include/opencv2/videostab/outlie
 src/CMakeFiles/myslam.dir/map.cpp.o: /usr/local/include/opencv2/videostab/ring_buffer.hpp
 src/CMakeFiles/myslam.dir/map.cpp.o: /usr/local/include/opencv2/videostab/stabilizer.hpp
 src/CMakeFiles/myslam.dir/map.cpp.o: /usr/local/include/opencv2/videostab/wobble_suppression.hpp
+src/CMakeFiles/myslam.dir/map.cpp.o: /usr/local/include/opencv2/viz.hpp
+src/CMakeFiles/myslam.dir/map.cpp.o: /usr/local/include/opencv2/viz/types.hpp
+src/CMakeFiles/myslam.dir/map.cpp.o: /usr/local/include/opencv2/viz/viz3d.hpp
+src/CMakeFiles/myslam.dir/map.cpp.o: /usr/local/include/opencv2/viz/vizcore.hpp
+src/CMakeFiles/myslam.dir/map.cpp.o: /usr/local/include/opencv2/viz/widgets.hpp
 src/CMakeFiles/myslam.dir/map.cpp.o: /usr/local/include/sophus/se3.h
 src/CMakeFiles/myslam.dir/map.cpp.o: /usr/local/include/sophus/so3.h
 
@@ -1652,6 +1673,11 @@ src/CMakeFiles/myslam.dir/mappoint.cpp.o: /usr/local/include/opencv2/videostab/o
 src/CMakeFiles/myslam.dir/mappoint.cpp.o: /usr/local/include/opencv2/videostab/ring_buffer.hpp
 src/CMakeFiles/myslam.dir/mappoint.cpp.o: /usr/local/include/opencv2/videostab/stabilizer.hpp
 src/CMakeFiles/myslam.dir/mappoint.cpp.o: /usr/local/include/opencv2/videostab/wobble_suppression.hpp
+src/CMakeFiles/myslam.dir/mappoint.cpp.o: /usr/local/include/opencv2/viz.hpp
+src/CMakeFiles/myslam.dir/mappoint.cpp.o: /usr/local/include/opencv2/viz/types.hpp
+src/CMakeFiles/myslam.dir/mappoint.cpp.o: /usr/local/include/opencv2/viz/viz3d.hpp
+src/CMakeFiles/myslam.dir/mappoint.cpp.o: /usr/local/include/opencv2/viz/vizcore.hpp
+src/CMakeFiles/myslam.dir/mappoint.cpp.o: /usr/local/include/opencv2/viz/widgets.hpp
 src/CMakeFiles/myslam.dir/mappoint.cpp.o: /usr/local/include/sophus/se3.h
 src/CMakeFiles/myslam.dir/mappoint.cpp.o: /usr/local/include/sophus/so3.h
 
@@ -1991,6 +2017,11 @@ src/CMakeFiles/myslam.dir/visual_odometry.cpp.o: /usr/local/include/opencv2/vide
 src/CMakeFiles/myslam.dir/visual_odometry.cpp.o: /usr/local/include/opencv2/videostab/ring_buffer.hpp
 src/CMakeFiles/myslam.dir/visual_odometry.cpp.o: /usr/local/include/opencv2/videostab/stabilizer.hpp
 src/CMakeFiles/myslam.dir/visual_odometry.cpp.o: /usr/local/include/opencv2/videostab/wobble_suppression.hpp
+src/CMakeFiles/myslam.dir/visual_odometry.cpp.o: /usr/local/include/opencv2/viz.hpp
+src/CMakeFiles/myslam.dir/visual_odometry.cpp.o: /usr/local/include/opencv2/viz/types.hpp
+src/CMakeFiles/myslam.dir/visual_odometry.cpp.o: /usr/local/include/opencv2/viz/viz3d.hpp
+src/CMakeFiles/myslam.dir/visual_odometry.cpp.o: /usr/local/include/opencv2/viz/vizcore.hpp
+src/CMakeFiles/myslam.dir/visual_odometry.cpp.o: /usr/local/include/opencv2/viz/widgets.hpp
 src/CMakeFiles/myslam.dir/visual_odometry.cpp.o: /usr/local/include/sophus/se3.h
 src/CMakeFiles/myslam.dir/visual_odometry.cpp.o: /usr/local/include/sophus/so3.h
 
