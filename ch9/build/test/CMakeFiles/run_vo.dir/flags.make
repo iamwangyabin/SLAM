@@ -6,5 +6,5 @@ CXX_FLAGS = -std=c++11 -march=native -O3 -O3 -DNDEBUG
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/usr/include/eigen3 -isystem /usr/local/include -isystem /usr/local/include/opencv -I/home/wang/Desktop/slambook/ch9/include 
+CXX_INCLUDES = -I/usr/include/eigen3 -isystem /usr/local/include -isystem /usr/local/include/opencv -I/home/wang/Sophus -I/home/wang/Desktop/slambook/ch9/include 
 

@@ -18,6 +18,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/include/eigen3"
   "/usr/local/include"
   "/usr/local/include/opencv"
+  "/home/wang/Sophus"
   "../include"
   )
 

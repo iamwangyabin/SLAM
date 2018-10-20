@@ -4,22 +4,18 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/wang/Desktop/slambook/ch9/test/run_vo.cpp" "/home/wang/Desktop/slambook/ch9/build/test/CMakeFiles/run_vo.dir/run_vo.cpp.o"
+  "/home/wang/Desktop/slambook/ch4/useSophus.cpp" "/home/wang/Desktop/slambook/ch4/build/CMakeFiles/useSophus.dir/useSophus.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/usr/include/eigen3"
-  "/usr/local/include"
-  "/usr/local/include/opencv"
   "/home/wang/Sophus"
-  "../include"
+  "/usr/include/eigen3"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/wang/Desktop/slambook/ch9/build/src/CMakeFiles/myslam.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

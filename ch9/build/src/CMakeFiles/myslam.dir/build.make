@@ -228,6 +228,7 @@ myslam_EXTERNAL_OBJECTS =
 ../lib/libmyslam.so: /usr/local/lib/libopencv_superres.so.3.4.3
 ../lib/libmyslam.so: /usr/local/lib/libopencv_videostab.so.3.4.3
 ../lib/libmyslam.so: /usr/local/lib/libopencv_viz.so.3.4.3
+../lib/libmyslam.so: /home/wang/Sophus/build/libSophus.so
 ../lib/libmyslam.so: /usr/local/lib/libopencv_calib3d.so.3.4.3
 ../lib/libmyslam.so: /usr/local/lib/libopencv_features2d.so.3.4.3
 ../lib/libmyslam.so: /usr/local/lib/libopencv_flann.so.3.4.3
