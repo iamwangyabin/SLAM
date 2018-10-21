@@ -1,4 +1,4 @@
-# Install script for directory: /home/wang/Desktop/slambook/ch7
+# Install script for directory: /home/wang/Desktop/slambook/ch6/g2o_curve_fitting
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/wang/Desktop/slambook/ch7/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/wang/Desktop/slambook/ch6/g2o_curve_fitting/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

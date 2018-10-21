@@ -13,7 +13,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.10.2/CMakeSystem.cmake"
   "CMakeFiles/feature_tests.c"
   "CMakeFiles/feature_tests.cxx"
-  "../cmake_modules/FindCSparse.cmake"
   "../cmake_modules/FindG2O.cmake"
   "/usr/local/share/OpenCV/OpenCVConfig-version.cmake"
   "/usr/local/share/OpenCV/OpenCVConfig.cmake"
@@ -122,5 +121,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/pose_estimation_3d2d.dir/DependInfo.cmake"
+  "CMakeFiles/curve_fitting.dir/DependInfo.cmake"
   )

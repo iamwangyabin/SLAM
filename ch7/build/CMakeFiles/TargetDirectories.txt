@@ -1,3 +1,3 @@
 /home/wang/Desktop/slambook/ch7/build/CMakeFiles/rebuild_cache.dir
-/home/wang/Desktop/slambook/ch7/build/CMakeFiles/feature_extraction.dir
+/home/wang/Desktop/slambook/ch7/build/CMakeFiles/pose_estimation_3d2d.dir
 /home/wang/Desktop/slambook/ch7/build/CMakeFiles/edit_cache.dir

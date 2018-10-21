@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/wang/Desktop/slambook/ch7
+CMAKE_SOURCE_DIR = /home/wang/Desktop/slambook/ch6/g2o_curve_fitting
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/wang/Desktop/slambook/ch7/build
+CMAKE_BINARY_DIR = /home/wang/Desktop/slambook/ch6/g2o_curve_fitting/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wang/Desktop/slambook/ch7/build/CMakeFiles /home/wang/Desktop/slambook/ch7/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wang/Desktop/slambook/ch6/g2o_curve_fitting/build/CMakeFiles /home/wang/Desktop/slambook/ch6/g2o_curve_fitting/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wang/Desktop/slambook/ch7/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wang/Desktop/slambook/ch6/g2o_curve_fitting/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,44 +111,44 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named pose_estimation_3d2d
+# Target rules for targets named curve_fitting
 
 # Build rule for target.
-pose_estimation_3d2d: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 pose_estimation_3d2d
-.PHONY : pose_estimation_3d2d
+curve_fitting: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 curve_fitting
+.PHONY : curve_fitting
 
 # fast build rule for target.
-pose_estimation_3d2d/fast:
-	$(MAKE) -f CMakeFiles/pose_estimation_3d2d.dir/build.make CMakeFiles/pose_estimation_3d2d.dir/build
-.PHONY : pose_estimation_3d2d/fast
+curve_fitting/fast:
+	$(MAKE) -f CMakeFiles/curve_fitting.dir/build.make CMakeFiles/curve_fitting.dir/build
+.PHONY : curve_fitting/fast
 
-pose_estimation_3d2d.o: pose_estimation_3d2d.cpp.o
+main.o: main.cpp.o
 
-.PHONY : pose_estimation_3d2d.o
+.PHONY : main.o
 
 # target to build an object file
-pose_estimation_3d2d.cpp.o:
-	$(MAKE) -f CMakeFiles/pose_estimation_3d2d.dir/build.make CMakeFiles/pose_estimation_3d2d.dir/pose_estimation_3d2d.cpp.o
-.PHONY : pose_estimation_3d2d.cpp.o
+main.cpp.o:
+	$(MAKE) -f CMakeFiles/curve_fitting.dir/build.make CMakeFiles/curve_fitting.dir/main.cpp.o
+.PHONY : main.cpp.o
 
-pose_estimation_3d2d.i: pose_estimation_3d2d.cpp.i
+main.i: main.cpp.i
 
-.PHONY : pose_estimation_3d2d.i
+.PHONY : main.i
 
 # target to preprocess a source file
-pose_estimation_3d2d.cpp.i:
-	$(MAKE) -f CMakeFiles/pose_estimation_3d2d.dir/build.make CMakeFiles/pose_estimation_3d2d.dir/pose_estimation_3d2d.cpp.i
-.PHONY : pose_estimation_3d2d.cpp.i
+main.cpp.i:
+	$(MAKE) -f CMakeFiles/curve_fitting.dir/build.make CMakeFiles/curve_fitting.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-pose_estimation_3d2d.s: pose_estimation_3d2d.cpp.s
+main.s: main.cpp.s
 
-.PHONY : pose_estimation_3d2d.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-pose_estimation_3d2d.cpp.s:
-	$(MAKE) -f CMakeFiles/pose_estimation_3d2d.dir/build.make CMakeFiles/pose_estimation_3d2d.dir/pose_estimation_3d2d.cpp.s
-.PHONY : pose_estimation_3d2d.cpp.s
+main.cpp.s:
+	$(MAKE) -f CMakeFiles/curve_fitting.dir/build.make CMakeFiles/curve_fitting.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -157,11 +157,11 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... pose_estimation_3d2d"
+	@echo "... curve_fitting"
 	@echo "... edit_cache"
-	@echo "... pose_estimation_3d2d.o"
-	@echo "... pose_estimation_3d2d.i"
-	@echo "... pose_estimation_3d2d.s"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 
