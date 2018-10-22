@@ -64,9 +64,9 @@ int main(int argc, char const *argv[])
     cout<<"R= "<<endl<<R<<endl;
     cout<<"t= "<<endl<<t<<endl;
 
-    cout<<"calling bundle adjustment"<<endl;
+    //cout<<"calling bundle adjustment"<<endl;
 
-    bundleAdjustment ( pts_3d, pts_2d, K, R, t );
+    //bundleAdjustment ( pts_3d, pts_2d, K, R, t );
     return 0;
 }
 
@@ -136,6 +136,7 @@ void bundleAdjustment(
     const Mat& K,
     Mat& R, Mat& t)
 {
+    /*
     typedef g2o::BlockSolver< g2o::BlockSolverTraits<6,3> > Block;  
     //Block::LinearSolverType* linearSolver = new g2o::LinearSolverCSparse<Block::PoseMatrixType>(); 
     std::unique_ptr<Block::LinearSolverType> linearSolver ( new g2o::LinearSolverCSparse<Block::PoseMatrixType>());
@@ -147,8 +148,17 @@ void bundleAdjustment(
 
     g2o::SparseOptimizer optimizer;
     optimizer.setAlgorithm(solver);
-
-    g2o::VertexSE3Expmap* pose = new g2o::VertexSE3Expmap();
+    */
+    typedef g2o::BlockSolver< g2o::BlockSolverTraits<6,3> > Block;
+    Block::LinearSolverType* linearSolver = new g2o::LinearSolverCSparse<Block::PoseMatrixType>();
+    Block* solver_ptr = new Block( std::unique_ptr<Block::LinearSolverType>(linearSolver) );
+    g2o::OptimizationAlgorithmLevenberg* solver = new g2o::OptimizationAlgorithmLevenberg(std::unique_ptr<Block>(solver_ptr) );
+    g2o::SparseOptimizer optimizer;   
+    optimizer.setAlgorithm( solver );   
+    optimizer.setVerbose( true ); 
+    
+   // g2o::VertexSE3Expmap* pose = new g2o::VertexSE3Expmap();
+    g2o::VertexSE3Expmap* pose=new g2o::VertexSE3Expmap();
     Eigen::Matrix3d R_mat;
     R_mat<<
         R.at<double>(0,0), R.at<double>(0,1), R.at<double>(0,2),
@@ -160,7 +170,7 @@ void bundleAdjustment(
         Eigen::Vector3d(t.at<double>(0,0),t.at<double>(1,0),t.at<double>(2,0))
     ));
     optimizer.addVertex(pose);
-
+    
     int index = 1;
     for(const Point3f p:points_3d){
         g2o::VertexSBAPointXYZ* point = new g2o::VertexSBAPointXYZ();
