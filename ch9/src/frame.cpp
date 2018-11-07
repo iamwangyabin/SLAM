@@ -27,6 +27,7 @@ Frame::Ptr Frame::createFrame()
 
 double Frame::findDepth ( const cv::KeyPoint& kp )
 {
+    // 返回跟参数最接近的整数值，即四舍五入
     int x = cvRound(kp.pt.x);
     int y = cvRound(kp.pt.y);
     ushort d = depth_.ptr<ushort>(y)[x];
@@ -36,7 +37,7 @@ double Frame::findDepth ( const cv::KeyPoint& kp )
     }
     else 
     {
-        // check the nearby points 
+        // 如果没有深度信息就从附近的点找一个
         int dx[4] = {-1,0,1,0};
         int dy[4] = {0,-1,0,1};
         for ( int i=0; i<4; i++ )
