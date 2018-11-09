@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/wang/Desktop/slambook/ch9/src/camera.cpp" "/home/wang/Desktop/slambook/ch9/build/src/CMakeFiles/myslam.dir/camera.cpp.o"
   "/home/wang/Desktop/slambook/ch9/src/config.cpp" "/home/wang/Desktop/slambook/ch9/build/src/CMakeFiles/myslam.dir/config.cpp.o"
   "/home/wang/Desktop/slambook/ch9/src/frame.cpp" "/home/wang/Desktop/slambook/ch9/build/src/CMakeFiles/myslam.dir/frame.cpp.o"
+  "/home/wang/Desktop/slambook/ch9/src/g2o_types.cpp" "/home/wang/Desktop/slambook/ch9/build/src/CMakeFiles/myslam.dir/g2o_types.cpp.o"
   "/home/wang/Desktop/slambook/ch9/src/map.cpp" "/home/wang/Desktop/slambook/ch9/build/src/CMakeFiles/myslam.dir/map.cpp.o"
   "/home/wang/Desktop/slambook/ch9/src/mappoint.cpp" "/home/wang/Desktop/slambook/ch9/build/src/CMakeFiles/myslam.dir/mappoint.cpp.o"
   "/home/wang/Desktop/slambook/ch9/src/visual_odometry.cpp" "/home/wang/Desktop/slambook/ch9/build/src/CMakeFiles/myslam.dir/visual_odometry.cpp.o"

@@ -10,12 +10,13 @@
 
 int main ( int argc, char** argv )
 {
+    //
     if ( argc != 2 )
     {
         cout<<"usage: run_vo parameter_file"<<endl;
         return 1;
     }
-
+    // 输入配置文件地址
     myslam::Config::setParameterFile ( argv[1] );
     myslam::VisualOdometry::Ptr vo ( new myslam::VisualOdometry );
 
@@ -45,7 +46,7 @@ int main ( int argc, char** argv )
 
     myslam::Camera::Ptr camera ( new myslam::Camera );
     
-    // visualization
+    // visualization是Opencv里面三维可视化用的
     cv::viz::Viz3d vis("Visual Odometry");
     cv::viz::WCoordinateSystem world_coor(1.0), camera_coor(0.5);
     cv::Point3d cam_pos( 0, -1.0, -1.0 ), cam_focal_point(0,0,0), cam_y_dir(0,1,0);
@@ -64,6 +65,7 @@ int main ( int argc, char** argv )
         Mat depth = cv::imread ( depth_files[i], -1 );
         if ( color.data==nullptr || depth.data==nullptr )
             break;
+        // 创建一帧的图像并且把数据附加上
         myslam::Frame::Ptr pFrame = myslam::Frame::createFrame();
         pFrame->camera_ = camera;
         pFrame->color_ = color;

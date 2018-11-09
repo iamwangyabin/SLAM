@@ -6,6 +6,7 @@
 
 #include "myslam/config.h"
 #include "myslam/visual_odometry.h"
+#include "myslam/g2o_types.h"
 
 namespace myslam
 {
@@ -42,6 +43,7 @@ bool VisualOdometry::addFrame ( Frame::Ptr frame )
         extractKeyPoints();
         computeDescriptors();
         // compute the 3d position of features in ref frame 
+        // 计算参考帧里的3d特征点
         setRef3DPoints();
         break;
     }
@@ -126,6 +128,7 @@ void VisualOdometry::setRef3DPoints()
     descriptors_ref_ = Mat();
     for ( size_t i=0; i<keypoints_curr_.size(); i++ )
     {
+        // 找到目前关键点的深度
         double d = ref_->findDepth(keypoints_curr_[i]);               
         if ( d > 0)
         {
@@ -162,6 +165,48 @@ void VisualOdometry::poseEstimationPnP()
     T_c_r_estimated_ = SE3(
         SO3(rvec.at<double>(0,0), rvec.at<double>(1,0), rvec.at<double>(2,0)), 
         Vector3d( tvec.at<double>(0,0), tvec.at<double>(1,0), tvec.at<double>(2,0))
+    );
+
+    // 用BA去优化姿态
+    typedef g2o::BlockSolver<g2o::BlockSolverTraits<6,2>> Block;
+    //Block::LinearSolverType* linearSolver = new g2o::LinearSolverDense<Block::PoseMatrixType>();
+    Block::LinearSolverType* linearSolver = new g2o::LinearSolverDense<Block::PoseMatrixType>();
+    Block* solver_ptr = new Block( std::unique_ptr<Block::LinearSolverType>(linearSolver) );
+
+    //Block* solver_ptr = new Block(linearSolver);
+    //g2o::OptimizationAlgorithmLevenberg* solver = new g2o::OptimizationAlgorithmLevenberg(solver_ptr);
+    g2o::OptimizationAlgorithmLevenberg* solver = new g2o::OptimizationAlgorithmLevenberg(std::unique_ptr<Block>(solver_ptr) );
+    g2o::SparseOptimizer optimizer;
+    optimizer.setAlgorithm(solver);
+
+    g2o::VertexSE3Expmap* pose = new g2o::VertexSE3Expmap();
+    pose->setId(0);
+    pose->setEstimate(g2o::SE3Quat(
+        T_c_r_estimated_.rotation_matrix(),T_c_r_estimated_.translation()
+    ));
+    optimizer.addVertex(pose);
+
+    // edges
+    for(int i=0; i<inliers.rows; i++)
+    {
+        int index = inliers.at<int>(i,0);
+        //3D->2D 投影
+        EdgeProjectXYZ2UVPoseOnly* edge = new EdgeProjectXYZ2UVPoseOnly();
+        edge->setId(i);
+        edge->setVertex(0, pose);
+        edge->camera_ = curr_->camera_.get();
+        edge->point_ = Vector3d(pts3d[index].x, pts3d[index].y, pts3d[index].x);
+        edge->setMeasurement(Vector2d(pts2d[index].x, pts2d[index].y));
+        edge->setInformation(Eigen::Matrix2d::Identity());
+        optimizer.addEdge(edge);
+    }
+
+    optimizer.initializeOptimization();
+    optimizer.optimize(10);
+
+    T_c_r_estimated_ = SE3(
+        pose->estimate().rotation(),
+        pose->estimate().translation()
     );
 }
 
