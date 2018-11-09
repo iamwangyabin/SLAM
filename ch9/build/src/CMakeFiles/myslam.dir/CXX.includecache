@@ -79,6 +79,8 @@ myslam/mappoint.h
 ../include/myslam/myslam/mappoint.h
 
 ../include/myslam/mappoint.h
+myslam/common_include.h
+../include/myslam/myslam/common_include.h
 
 ../include/myslam/visual_odometry.h
 myslam/common_include.h

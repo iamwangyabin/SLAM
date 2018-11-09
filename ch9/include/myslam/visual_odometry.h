@@ -29,8 +29,12 @@ public:
     Mat                     descriptors_curr_;  // descriptor in current frame 
     Mat                     descriptors_ref_;   // descriptor in reference frame 
     vector<cv::DMatch>      feature_matches_;
-    
-    SE3 T_c_r_estimated_;  // the estimated pose of current frame 
+
+    cv::FlannBasedMatcher   matcher_flann_;     // flann matcher
+    vector<MapPoint::Ptr>   match_3dpts_;       // matched 3d points 
+    vector<int>             match_2dkp_index_;  // matched 2d pixels (index of kp_curr)
+
+    SE3 T_c_w_estimated_;  // the estimated pose of current frame 
     int num_inliers_;        // number of inlier features in icp
     int num_lost_;           // number of lost times
     
@@ -44,7 +48,8 @@ public:
     
     double key_frame_min_rot;   // minimal rotation of two key-frames
     double key_frame_min_trans; // minimal translation of two key-frames
-    
+    double  map_point_erase_ratio_; // remove map point ratio
+
 public: // functions 
     VisualOdometry();
     ~VisualOdometry();
@@ -58,11 +63,14 @@ protected:
     void featureMatching();
     void poseEstimationPnP(); 
     void setRef3DPoints();
+    void optimizeMap();
     
     void addKeyFrame();
+    void addMapPoints();
     bool checkEstimatedPose(); 
     bool checkKeyFrame();
     
+    double getViewAngle( Frame::Ptr frame, MapPoint::Ptr point );
 };
 }
 
