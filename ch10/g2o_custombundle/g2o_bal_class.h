@@ -1,11 +1,12 @@
+
+#include <Eigen/Core>
 #include "g2o/core/base_vertex.h"
 #include "g2o/core/base_binary_edge.h"
 
-#include <Eigen/Core>
 #include "ceres/autodiff.h"
 
-#include "common/projection.h"
 #include "tools/rotation.h"
+#include "common/projection.h"
 
 
 /**
@@ -16,9 +17,10 @@ class VertexCameraBAL:public g2o::BaseVertex<9,Eigen::VectorXd>
 {
 public:
     EIGEN_MAKE_ALIGNED_OPERATOR_NEW;
+
     VertexCameraBAL(){}
-    virtual bool read(std::istream& is){ return false; }
-    virtual bool write(std::ostream& os) const { return false; }
+    virtual bool read(std::istream& ){ return false; }
+    virtual bool write(std::ostream& ) const { return false; }
     virtual void setToOriginImpl(){}
     /**
      * 增量函数，增量为传进的参数update，这里是9个double值，所以就是double类型指针了(其实也就是数组)
@@ -38,8 +40,8 @@ class VertexPointBAL:public g2o::BaseVertex<3,Eigen::Vector3d>
 public:
     EIGEN_MAKE_ALIGNED_OPERATOR_NEW;
     VertexPointBAL(){}
-    virtual bool read(std::istream& is){ return false; }
-    virtual bool write(std::ostream& os) const { return false; }
+    virtual bool read(std::istream& ){ return false; }
+    virtual bool write(std::ostream& ) const { return false; }
     virtual void setToOriginImpl(){}
 
     /**
@@ -47,7 +49,7 @@ public:
      * update不再是Eigen::Vector3d的形式，而是变成了地图类型
      * */
     virtual void oplusImpl(const double* update) {
-        Eigen::VectorXd::ConstMapType v(update);
+        Eigen::Vector3d::ConstMapType v(update);
         _estimate += v;
     }
 };
@@ -59,10 +61,11 @@ public:
 class EdgeObservationBAL:public g2o::BaseBinaryEdge<2,Eigen::Vector2d, VertexCameraBAL,VertexPointBAL>{
 public:
     EIGEN_MAKE_ALIGNED_OPERATOR_NEW;
+
     EdgeObservationBAL(){}
 
-    virtual bool read(std::istream& is){ return false; }
-    virtual bool write(std::ostream& os) const { return false; }
+    virtual bool read(std::istream& ){ return false; }
+    virtual bool write(std::ostream& ) const { return false; }
 
     /**
      * 观测值在当前图片中可以看到这个路标，通过计算描述子可以在当前图片中找到和路标匹配的特征点，这个匹配的特征点的像素坐标就是观测值。
@@ -79,8 +82,10 @@ public:
     bool operator()(const T* camera,const T* point, T* residuals) const {
         T predictions[2];
         CamProjectionWithDistortion(camera,point,predictions);
-        residuals[0]=predictions[0]-T(measurement()(0));
-        residuals[1]=predictions[1]-T(measurement()(1));
+        residuals[0] = predictions[0] - T ( measurement() ( 0 ) );
+//        residuals[0]=predictions[0]-T(measurement()(0));
+//        residuals[1]=predictions[1]-T(measurement()(1));
+        residuals[1] = predictions[1] - T ( measurement() ( 1 ) );
         return true;
     }
 
@@ -90,21 +95,21 @@ public:
         /**
          * 四个参数分别是边类，数据类型，两个顶点类。
          * */
-        typedef ceres::internal::AutoDiff<EdgeObservationBAL,double,VertexCameraBAL::Dimension,VertexPointBAL::Dimension> BalAutoDiff;
+        typedef ceres::internal::AutoDiff<EdgeObservationBAL, double, VertexCameraBAL::Dimension, VertexPointBAL::Dimension> BalAutoDiff;
         /**
          * 定义对Camera顶点求导后的矩阵，dError_dCamera,维度Dimension*顶点的维度，应该是9.
          * */
-        Eigen::Matrix<double,Dimension,VertexCameraBAL::Dimension,Eigen::RowMajor> dError_dCamera;
+        Eigen::Matrix<double, Dimension, VertexCameraBAL::Dimension, Eigen::RowMajor> dError_dCamera;
         /**
          * 对Point顶点求导后的矩阵dError_dPoint.
          * */
-        Eigen::Matrix<double,Dimension,VertexCameraBAL::Dimension,Eigen::RowMajor> dError_dPoint;
-        double *parameters[]={const_cast<double *>(cam->estimate().data()), const_cast<double *>(point->estimate().data())};
+        Eigen::Matrix<double, Dimension, VertexPointBAL::Dimension, Eigen::RowMajor> dError_dPoint;
+        double *parameters[] ={const_cast<double *>(cam->estimate().data()), const_cast<double *>(point->estimate().data())};
         /**
          * 雅克比矩阵是2*6形式。每个误差都有一个雅可比矩阵，这里应该是每个雅可比矩阵的形式。
          * 由camera的导数和point的导数组成。
          * */
-        double *jacobians[]={const_cast<double *>(dError_dCamera.data()), dError_dPoint.data()};
+        double *jacobians[]={dError_dCamera.data(), dError_dPoint.data()};
         double value[Dimension];
 
         /**
@@ -113,8 +118,8 @@ public:
         bool diffState=BalAutoDiff::Differentiate(*this,parameters,Dimension,value,jacobians);
 
         if(diffState){
-            _jacobianOplusXi=dError_dCamera;
-            _jacobianOplusXj=dError_dPoint;
+            _jacobianOplusXi = dError_dCamera;
+            _jacobianOplusXj = dError_dPoint;
         } else{
             assert(0&&"rooro");
             _jacobianOplusXi.setZero();
